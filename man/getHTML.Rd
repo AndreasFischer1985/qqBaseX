@@ -7,8 +7,8 @@
 
   getHTML(url = "https://scholar.google.de/citations?user=-TjY7oEAAAAJ&hl=de&oi=sra",
   encoding = "UTF-8", save = F, prefix = NULL, closeCon = F,
-  method = "libcurl", headers = NULL, silent = T,
-  curlGetHeaders = F, browseURL = F, ...)
+  method = "libcurl", silent = T, curlGetHeaders = F,
+  browseURL = F, ...)
 }
 \arguments{
 \item{url}{Character string speficying a valid URL.}
@@ -18,6 +18,18 @@
 \item{save}{Logical value specifying whether the HTML-code should be saved to a csv-file.}
 
 \item{prefix}{Character value specifying the beginning of the filename (in case of saving). If NULL (default) as.numeric(Sys.time()) is applied.}
+
+\item{closeCon}{Logical value specifying whether to close open connections before and after scraping. defaults to F.}
+
+\item{method}{Character value specifying the method. Defaults to "libcurl".}
+
+\item{silent}{Logical value specifying whether to skip informative messages. Defaults to T.}
+
+\item{browseURL}{Locgical value specifying wether to open the URL in a web-browser. Defaults to F.}
+
+\item{curlHeaders}{Logical value specifying whether to apply curlHeaders. Defaults to F.}
+
+\item{headers}{Logical value.}
 }
 \description{
 Extracts HTML from an URL.

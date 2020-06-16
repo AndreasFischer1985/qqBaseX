@@ -49,7 +49,7 @@ scrapeJDDM <- function (plot = T, urls = paste0("https://journals.ub.uni-heidelb
             "Dec"), "<"), collapse = "|")
         df = data.frame(c("Intro", matchAll(html[i], months)[[1]]), 
             strsplit(as.character(html[i]), months))
-        df[, 2] = gsub("<table class=\\\"stats\\\"><tr><th>201[0-9]</th>", 
+        df[, 2] = gsub("<table class=\\\"stats\\\"><tr><th>20[0-9][0-9]</th>", 
             "", df[, 2])
         numbers = sapply(matchAll(df[, 2], ">[0-9]+<"), function(x) as.numeric(gsub("[<>]", 
             "", c(x[1:2]))))[, -1]

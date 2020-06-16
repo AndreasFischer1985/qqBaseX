@@ -18,7 +18,13 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
     cex = par("cex"), pt.cex = cex, pch = 16, gpch = 21, bg = par("bg"), 
     color = par("fg"), gcolor = par("fg"), lcolor = "gray", xlim = range(x[is.finite(x)]), 
     main = NULL, xlab = NULL, ylab = NULL, deviations = NA, x2 = NA, 
-    vertLine = 0, horizLines = T, max = 40, sort = F, ...) 
+    vertLine = 0, horizLines = T, max = 40, sort = F, add.numbers = F, 
+    ndigits = 2, ncex = NA, nsrt = 0, npos = NA, ncol = "black", 
+    main1 = NULL, main2 = NULL, main3 = NULL, adj.main1 = 0, 
+    adj.main2 = 0, adj.main3 = 0, col.main1 = "black", col.main2 = "black", 
+    col.main3 = "black", cex.main1 = 1.2, cex.main2 = 1.2, cex.main3 = 1.2, 
+    font.main1 = 1, font.main2 = 2, font.main3 = 4, omitZeros = F, 
+    ...) 
 {
     opar <- par("mai", "mar", "cex", "yaxs")
     on.exit(par(opar))
@@ -71,6 +77,24 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
             warning("'x' is neither a vector nor a matrix: using as.numeric(x)")
             x <- as.numeric(x)
         }
+    }
+    addChars = ifelse(is.character(add.numbers), add.numbers, 
+        "")
+    if (is.character(add.numbers)) 
+        add.numbers = T
+    if (is.null(ncex)) 
+        ncex = cex
+    else if (is.na(ncex)) 
+        ncex = cex
+    if (!is.null(npos)) 
+        if (is.na(npos)) 
+            npos = 3
+    round2 = function(x, ...) {
+        x2 = as.character(round(x, ...))
+        x2[is.na(x)] = ""
+        if (omitZeros == T) 
+            x2[x2 == 0] = ""
+        return(x2)
     }
     plot.new()
     linch <- if (!is.null(labels)) 
@@ -134,6 +158,9 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
         points(x2, y, pch = pch, col = color, bg = bg, cex = pt.cex/cex)
     }
     points(x, y, pch = pch, col = color, bg = bg, cex = pt.cex/cex)
+    if (add.numbers) 
+        text(x, y, paste0(round2(x, ndigits), addChars), pos = npos, 
+            col = ncol, cex = ncex, srt = nsrt, xpd = T)
     if (!is.null(groups)) {
         gpos <- rev(cumsum(rev(tapply(groups, groups, length)) + 
             2) - 1)
@@ -145,11 +172,22 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
             abline(h = gpos, lty = "dotted")
             points(gdata, gpos, pch = gpch, col = gcolor, bg = bg, 
                 cex = pt.cex/cex, ...)
+            text(gdata, gpos, "test")
         }
     }
     axis(1)
     box()
-    title(main = main, xlab = xlab, ylab = ylab, ...)
+    if (!is.null(main)) 
+        title(main = main, xlab = xlab, ylab = ylab, ...)
+    if (!is.null(main1)) 
+        title(main1, line = 1, adj = adj.main1, cex.main = cex.main1, 
+            col = col.main1, font.main = font.main1)
+    if (!is.null(main2)) 
+        title(main2, line = 2, adj = adj.main2, cex.main = cex.main2, 
+            col = col.main2, font.main = font.main2)
+    if (!is.null(main3)) 
+        title(main3, line = 3, adj = adj.main3, cex.main = cex.main3, 
+            col = col.main3, font.main = font.main3)
     if (!is.na(vertLine)) 
         abline(v = vertLine, col = color)
     invisible()

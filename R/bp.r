@@ -12,6 +12,7 @@
 #' @param nsrt Numeric value specifying the rotation of the numbers (between 0 and 360 degrees). Defaults to 0.
 #' @param npos Numeric value specifying the position of numbers. If NA (default) it is determined automatically.
 #' @param ncol Vector containing the color of bars. Defaults to "black".
+#' @param sdcol Vector containing the color of arrows. Defaults to "grey".
 #' @param grid Logical value indicating whether to plot a grid. Defaults to T.
 #' @param plot Logical value indicating whether to plot the barplot. Defaults to T.
 #' @param main Character vector with one element containing the barplot's title. Defaults to NULL
@@ -45,9 +46,9 @@
 
 bp <- function (x = NULL, sd = NULL, cex = 1, beside = T, horiz = F, 
     add.numbers = F, ndigits = 2, ncex = NA, nsrt = 0, npos = NA, 
-    ncol = "black", grid = T, plot = T, main = NULL, sub = NULL, 
-    xlim.factor = 1.5, las = 1, srt = 45, xlim = NULL, ylim = NULL, 
-    names.arg = NULL, legend.text = NULL, optimize.legend = T, 
+    ncol = "black", sdcol = "grey", grid = T, plot = T, main = NULL, 
+    sub = NULL, xlim.factor = 1.5, las = 1, srt = 45, xlim = NULL, 
+    ylim = NULL, names.arg = NULL, legend.text = NULL, optimize.legend = T, 
     args.legend = NULL, density = NULL, angle = 45, col = NULL, 
     grid.col = "grey", axes = T, add = F, adj = 0.5, default.labels = F, 
     xlab = NA, ylab = NA, border = NA, grid.mode = 0, main1 = NULL, 
@@ -229,11 +230,11 @@ bp <- function (x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
         if (!is.null(sd) & beside) 
             if (!horiz) {
                 arrows(b, x2 + sd, b, x2 - sd, angle = 90, code = 3, 
-                  length = 0.1, xpd = T)
+                  length = 0.1, xpd = T, col = sdcol)
             }
             else {
                 arrows(x2 + sd, b, x2 - sd, b, angle = 90, code = 3, 
-                  length = 0.1, xpd = T)
+                  length = 0.1, xpd = T, col = sdcol)
             }
     if (beside == T) {
         rownames(b) = rownames(x)

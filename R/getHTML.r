@@ -5,6 +5,12 @@
 #' @param encoding Character value specifying the encoding. Defaults to "UTF-8".
 #' @param save Logical value specifying whether the HTML-code should be saved to a csv-file.
 #' @param prefix Character value specifying the beginning of the filename (in case of saving). If NULL (default) as.numeric(Sys.time()) is applied.
+#' @param closeCon Logical value specifying whether to close open connections before and after scraping. defaults to F.
+#' @param method Character value specifying the method. Defaults to "libcurl".
+#' @param silent Logical value specifying whether to skip informative messages. Defaults to T.
+#' @param curlHeaders Logical value specifying whether to apply curlHeaders. Defaults to F.
+#' @param headers Logical value.
+#' @param browseURL Locgical value specifying wether to open the URL in a web-browser. Defaults to F.
 #' @details Extracts HTML from an URL. Assumes UTF-8 encoding by default. Returns a character element containing HTML-code.
 #' @keywords scraping
 #' @export
@@ -13,8 +19,8 @@
 
 getHTML <- function (url = "https://scholar.google.de/citations?user=-TjY7oEAAAAJ&hl=de&oi=sra", 
     encoding = "UTF-8", save = F, prefix = NULL, closeCon = F, 
-    method = "libcurl", headers = NULL, silent = T, curlGetHeaders = F, 
-    browseURL = F, ...) 
+    method = "libcurl", silent = T, curlGetHeaders = F, browseURL = F, 
+    ...) 
 {
     if (closeCon) {
         co = as.numeric(rownames(showConnections(all = T)))

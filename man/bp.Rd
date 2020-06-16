@@ -6,17 +6,18 @@
 \usage{
 bp(x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
   add.numbers = F, ndigits = 2, ncex = NA, nsrt = 0, npos = NA,
-  ncol = "black", grid = T, plot = T, main = NULL, sub = NULL,
-  xlim.factor = 1.5, las = 1, srt = 45, xlim = NULL, ylim = NULL,
-  names.arg = NULL, legend.text = NULL, optimize.legend = T,
-  args.legend = NULL, density = NULL, angle = 45, col = NULL,
-  grid.col = "grey", axes = T, add = F, adj = 0.5,
-  default.labels = F, xlab = NA, ylab = NA, border = NA,
-  grid.mode = 0, main1 = NULL, main2 = NULL, main3 = NULL,
-  adj.main1 = 0, adj.main2 = 0, adj.main3 = 0, col.main1 = "black",
-  col.main2 = "black", col.main3 = "black", cex.main1 = 1.2,
-  cex.main2 = 1.2, cex.main3 = 1.2, font.main1 = 1, font.main2 = 2,
-  font.main3 = 4, omitZeros = T, mar = NA, automar = F, ...)
+  ncol = "black", sdcol = "grey", grid = T, plot = T,
+  main = NULL, sub = NULL, xlim.factor = 1.5, las = 1, srt = 45,
+  xlim = NULL, ylim = NULL, names.arg = NULL, legend.text = NULL,
+  optimize.legend = T, args.legend = NULL, density = NULL,
+  angle = 45, col = NULL, grid.col = "grey", axes = T, add = F,
+  adj = 0.5, default.labels = F, xlab = NA, ylab = NA,
+  border = NA, grid.mode = 0, main1 = NULL, main2 = NULL,
+  main3 = NULL, adj.main1 = 0, adj.main2 = 0, adj.main3 = 0,
+  col.main1 = "black", col.main2 = "black", col.main3 = "black",
+  cex.main1 = 1.2, cex.main2 = 1.2, cex.main3 = 1.2,
+  font.main1 = 1, font.main2 = 2, font.main3 = 4, omitZeros = T,
+  mar = NA, automar = F, ...)
 }
 \arguments{
 \item{x}{Numeric vector, matrix or data.frame containing the values to be displayed.}
@@ -40,6 +41,8 @@ bp(x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
 \item{npos}{Numeric value specifying the position of numbers. If NA (default) it is determined automatically.}
 
 \item{ncol}{Vector containing the color of bars. Defaults to "black".}
+
+\item{sdcol}{Vector containing the color of arrows. Defaults to "grey".}
 
 \item{grid}{Logical value indicating whether to plot a grid. Defaults to T.}
 
