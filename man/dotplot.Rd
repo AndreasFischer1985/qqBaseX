@@ -15,7 +15,7 @@ dotplot(x = NULL, labels = NULL, groups = NULL, gdata = NULL,
   adj.main1 = 0, adj.main2 = 0, adj.main3 = 0, col.main1 = "black",
   col.main2 = "black", col.main3 = "black", cex.main1 = 1.2,
   cex.main2 = 1.2, cex.main3 = 1.2, font.main1 = 1, font.main2 = 2,
-  font.main3 = 4, omitZeros = F, ...)
+  font.main3 = 4, omitZeros = F, xaxs = "i", yaxs = "i", ...)
 }
 \arguments{
 \item{x}{Numeric vector.}

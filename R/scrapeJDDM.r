@@ -1,7 +1,7 @@
 #' Function scrapeJDDM
 #' 
 #' Downloads and returns data and metadata from the database of the Journal of Dynamic Decision Making.
-#' @param plot Logical vakue specifying wether to plot data on reads and downloads.
+#' @param plot Logical value specifying wether to plot data on reads and downloads.
 #' @details Downloads and returns data and metadata from the database of the Journal of Dynamic Decision Making.
 #' @keywords scraping
 #' @export

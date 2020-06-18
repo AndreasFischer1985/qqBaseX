@@ -24,7 +24,7 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
     adj.main2 = 0, adj.main3 = 0, col.main1 = "black", col.main2 = "black", 
     col.main3 = "black", cex.main1 = 1.2, cex.main2 = 1.2, cex.main3 = 1.2, 
     font.main1 = 1, font.main2 = 2, font.main3 = 4, omitZeros = F, 
-    ...) 
+    xaxs = "i", yaxs = "i", ...) 
 {
     opar <- par("mai", "mar", "cex", "yaxs")
     on.exit(par(opar))
@@ -89,14 +89,20 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
     if (!is.null(npos)) 
         if (is.na(npos)) 
             npos = 3
-    round2 = function(x, ...) {
-        x2 = as.character(round(x, ...))
+    round2 = function(x, ndigits, addChars = "") {
+        x2 = as.character(round(x, digits = ndigits))
         x2[is.na(x)] = ""
         if (omitZeros == T) 
             x2[x2 == 0] = ""
+        x2 = paste0(x2, addChars)
+        x2[x2 == addChars] = ""
         return(x2)
     }
     plot.new()
+    if (!is.null(xaxs)) 
+        par(xaxs = xaxs)
+    if (!is.null(yaxs)) 
+        par(yaxs = yaxs)
     linch <- if (!is.null(labels)) 
         max(strwidth(labels, "inch"), na.rm = TRUE)
     else 0
@@ -159,7 +165,7 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
     }
     points(x, y, pch = pch, col = color, bg = bg, cex = pt.cex/cex)
     if (add.numbers) 
-        text(x, y, paste0(round2(x, ndigits), addChars), pos = npos, 
+        text(x, y, round2(x, ndigits, addChars), pos = npos, 
             col = ncol, cex = ncex, srt = nsrt, xpd = T)
     if (!is.null(groups)) {
         gpos <- rev(cumsum(rev(tapply(groups, groups, length)) + 

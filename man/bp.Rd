@@ -52,7 +52,7 @@ bp(x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
 
 \item{sub}{Character vector with one element containing the barplot's subtitle. Defaults to NULL}
 
-\item{xlim.factor}{Numeric value for adding extra space to the right of the barplot. Defaults to 1.}
+\item{xlim.factor}{Numeric value for adding extra space to the right of the barplot (if a legend is provided). Defaults to 1.5}
 
 \item{las}{Numeric value specifying the rotation of the y-axis (0 for 90 percent rotation, 1 for 0 percent rotation). Defaults to 1.}
 
