@@ -89,7 +89,7 @@ bp <- function (x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
     x = as.matrix(x)
     if (is.character(x)) 
         stop("Please provide numeric data!")
-    x2 = ifelse(dim(x)[2] == 1, list(x[, 1]), list(x))[[1]]
+    x2 = ifelse(dim(x)[2] == 1 & beside == T, list(x[, 1]), list(x))[[1]]
     if (!is.null(sd)) {
         sd = ifelse(dim(x)[2] == 1, list(as.matrix(sd)[, 1]), 
             list(as.matrix(sd)))[[1]]
@@ -107,8 +107,6 @@ bp <- function (x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
         list(1))[[1]])
     space = unlist(ifelse(length(el[["space"]]) > 0, el["space"], 
         ifelse(beside & dim(x)[2] > 1, list(c(0, 1)), list(0.2)))[[1]])
-    if (dim(x)[2] == 1) 
-        beside = T
     if (is.null(col)) 
         col = rainbow(dim(x)[1])
     if (is.null(legend.text) & dim(x)[2] > 1) 
@@ -286,10 +284,12 @@ bp <- function (x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
                     for (i in 2:dim(x)[1]) {
                       m = as.matrix(x[c(1:i), ])
                       dim(m) = c(length(c(1:i)), dim(x)[2])
-                      text(b, (colSums(rbind(m[1:i, ])) + colSums(rbind(m[1:(i - 
-                        1), ])))/2, labels = round2(x[i, ], ndigits, 
-                        addChars), col = ncol, xpd = T, cex = ncex, 
-                        srt = nsrt, pos = npos)
+                      text(b, ifelse(dim(x)[2] == 1, list((sum(rbind(m[1:i, 
+                        ])) + sum(rbind(m[1:(i - 1), ])))/2), 
+                        list((colSums(rbind(m[1:i, ])) + colSums(rbind(m[1:(i - 
+                          1), ])))/2))[[1]], labels = round2(x[i, 
+                        ], ndigits, addChars), col = ncol, xpd = T, 
+                        cex = ncex, srt = nsrt, pos = npos)
                     }
                 }
         }
@@ -318,9 +318,11 @@ bp <- function (x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
                     for (i in 2:dim(x)[1]) {
                       m = as.matrix(x[c(1:i), ])
                       dim(m) = c(length(c(1:i)), dim(x)[2])
-                      text((colSums(rbind(m[1:i, ])) + colSums(rbind(m[1:(i - 
-                        1), ])))/2, b, labels = round2(x[i, ], 
-                        ndigits, addChars), col = ncol, xpd = T, 
+                      text(ifelse(dim(x)[2] == 1, list((sum(rbind(m[1:i, 
+                        ])) + sum(rbind(m[1:(i - 1), ])))/2), 
+                        list((colSums(rbind(m[1:i, ])) + colSums(rbind(m[1:(i - 
+                          1), ])))/2))[[1]], b, labels = round2(x[i, 
+                        ], ndigits, addChars), col = ncol, xpd = T, 
                         cex = ncex, srt = nsrt, pos = npos)
                     }
                 }
