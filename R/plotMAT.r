@@ -9,7 +9,7 @@
 #' @param lty Numeric vector specifying line type. Defaults to 1.
 #' @param pch Numeric vector specifying points type. Defaults to NULL.
 #' @param type Numeric vector specifying plot-type of lines. Defaults to "l".
-#' @param main Character value representing the title. If NULL (default) it's set to "Cumulation over Time" if cumsum==T, and to "Development over Time" otherwise.
+#' @param main Character value representing the title. Defaults to NULL.
 #' @param xlim Numeric vector with two elements. If NULL (default) xlim is detemined automatically.
 #' @param ylim Numeric vector with two elements. If NULL (default) ylim is detemined automatically.
 #' @param xlim.factor Numeric value for adding extra space to the right of the plot. Defaults to 1.
@@ -106,8 +106,6 @@ plotMAT <- function (matrix = NULL, main = NULL, xlab = "", ylab = NULL,
         xlab = "time"
     if (is.null(ylab)) 
         ylab = ifelse(cumsum, "cumulated sum", "value")
-    if (is.null(main)) 
-        main = ifelse(cumsum, "Cumulation over Time", "Development over Time")
     if (!is.null(manual.addon)) 
         if (length(manual.addon) != dim(matrix)[1]/2) 
             manual.addon = rep(0, dim(matrix)[1]/2)

@@ -119,7 +119,7 @@ bp <- function (x = NULL, sd = NULL, cex = 1, beside = T, horiz = F,
                 legend.text = NULL
     if (length(args.legend) == 1) 
         if (sum(is.na(args.legend)) > 0 | sum(args.legend == 
-            F, na.rm = T) > 0) 
+            F) > 0) 
             legend.text = NULL
     if (is.null(xlim)) 
         if (!horiz) {

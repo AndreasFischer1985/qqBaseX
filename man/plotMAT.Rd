@@ -60,7 +60,7 @@ plotMAT(matrix = NULL, main = NULL, xlab = "", ylab = NULL,
 
 \item{manual.addon}{Numeric vector containing verical adjustments.}
 
-\item{main}{Character value representing the title. If NULL (default) it's set to "Cumulation over Time" if cumsum==T, and to "Development over Time" otherwise.}
+\item{main}{Character value representing the title. Defaults to NULL.}
 }
 \description{
 Plots a numeric matrix as one line per row.
