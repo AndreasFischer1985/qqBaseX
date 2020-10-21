@@ -17,7 +17,7 @@
 
 flowerplot <- function (x = NULL, maximum = NULL, rownames = NULL, colnames = NULL, 
     main = NULL, color = NULL, color2 = "lightgrey", add.numbers = F, 
-    ncex = 0.8, ncol = "black") 
+    ncex = 0.8, ndigits = 1, ncol = "black") 
 {
     if (!is.null(x)) 
         data = data.frame(x)
@@ -76,7 +76,7 @@ flowerplot <- function (x = NULL, maximum = NULL, rownames = NULL, colnames = NU
                   sin(r)
                 yr = he + y0 - x * sin(r) + y * cos(r)
                 text(xr[20], yr[20], ifelse(text == 1, "1.0", 
-                  ifelse(text == 0, "0.0", round(text, 2))), 
+                  ifelse(text == 0, "0.0", round(text, ndigits))), 
                   cex = ncex, col = ncol)
             }
     }
