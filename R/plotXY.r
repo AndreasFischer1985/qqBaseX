@@ -4,6 +4,8 @@
 #' @param x Numeric vector.
 #' @param y Numeric vector of the same length as x.
 #' @param complexity Numeric value specifying the amount of nonlinearity modelled. Defaults to 0 (i.e., a linear model).
+#' @param rep.nnet Numeric value specifying the number of nnet-objects to choose the best model from.
+#' @param attrModel Logical value specifying whether to add the model as an attribute to the object returned.
 #' @param na.rm Logical value indicating whether missing values should be skipped. Defaults to T.
 #' @param color1 Color of points in the scattergram. Defaults to rgb(0,0,0,.7).
 #' @param color2 Color of the regression line. Defaults to rgb(0,0,1).

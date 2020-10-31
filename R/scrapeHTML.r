@@ -5,8 +5,9 @@
 #' @param short Logical value specifying whether only lines with verbal information or link should be returned. Defaults to F.
 #' @param edit Logical value specifying whether the data.frame should be plotted/edited.
 #' @param save Logical value specifying whether the HTML-code should be saved to a csv-file.
+#' @param plot Logical value specifying whether to plot the frequency of each HTML-tag found in the html-object.
 #' @param prefix Character value specifying the beginning of the filename (in case of saving). If NULL (default) as.numeric(Sys.time()) is applied.
-#' @details Extracts Information from HTML. Returns a data.frame with three columns: the first column contains html-code, the second column contains extracted verbal information, and the third column contains extracted links.
+#' @details Extracts Information from HTML code (as returned by qqBaseX::getHTML, for example). Returns a data.frame with three columns: the first column contains html-code, the second column contains extracted verbal information, and the third column contains extracted links.
 #' @keywords scraping
 #' @export
 #' @examples

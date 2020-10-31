@@ -6,9 +6,10 @@
 #' @param pattern Regular expression further specifying subsets of interest. If NULL (default) equals tag.
 #' @param edit Logical value specifying whether the data.frame should be plotted/edited.
 #' @param save Logical value specifying whether the HTML-code should be saved to a csv-file.
+#' @param plot Logical value specifying whether to plot the frequency of each HTML-tag found in the html-object.
 #' @param prefix Character value specifying the beginning of the filename (in case of saving). If NULL (default) as.numeric(Sys.time()) is applied.
 #' @param trim Logical value specifying whether to trim text. Defaults to T.
-#' @details Extracts a coherent subset of code from HTML-code.
+#' @details Extracts a coherent subset of code from HTML-code (as returned by qqBaseX::getHTML, for example).
 #' @keywords scraping
 #' @export
 #' @examples

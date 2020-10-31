@@ -1,6 +1,6 @@
 #' Function getHTML
 #' 
-#' Extracts HTML from an URL.
+#' Returns HTML from an URL obained via GET-request.
 #' @param url Character string speficying a valid URL.
 #' @param encoding Character value specifying the encoding. Defaults to "UTF-8".
 #' @param save Logical value specifying whether the HTML-code should be saved to a csv-file.
@@ -11,7 +11,7 @@
 #' @param curlHeaders Logical value specifying whether to apply curlHeaders. Defaults to F.
 #' @param headers Logical value.
 #' @param browseURL Locgical value specifying wether to open the URL in a web-browser. Defaults to F.
-#' @details Extracts HTML from an URL. Assumes UTF-8 encoding by default. Returns a character element containing HTML-code.
+#' @details Returns HTML from an URL obained via GET-request. Assumes UTF-8 encoding by default. Returns a character element containing HTML-code.
 #' @keywords scraping
 #' @export
 #' @examples

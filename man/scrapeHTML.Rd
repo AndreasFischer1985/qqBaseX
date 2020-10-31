@@ -16,13 +16,15 @@ scrapeHTML(html, short = F, edit = T, save = F, plot = F,
 
 \item{save}{Logical value specifying whether the HTML-code should be saved to a csv-file.}
 
+\item{plot}{Logical value specifying whether to plot the frequency of each HTML-tag found in the html-object.}
+
 \item{prefix}{Character value specifying the beginning of the filename (in case of saving). If NULL (default) as.numeric(Sys.time()) is applied.}
 }
 \description{
 Extracts Information from HTML.
 }
 \details{
-Extracts Information from HTML. Returns a data.frame with three columns: the first column contains html-code, the second column contains extracted verbal information, and the third column contains extracted links.
+Extracts Information from HTML code (as returned by qqBaseX::getHTML, for example). Returns a data.frame with three columns: the first column contains html-code, the second column contains extracted verbal information, and the third column contains extracted links.
 }
 \examples{
 scrapeHTML(getHTML())

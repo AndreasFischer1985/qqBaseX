@@ -32,10 +32,10 @@
 \item{headers}{Logical value.}
 }
 \description{
-Extracts HTML from an URL.
+Returns HTML from an URL obained via GET-request.
 }
 \details{
-Extracts HTML from an URL. Assumes UTF-8 encoding by default. Returns a character element containing HTML-code.
+Returns HTML from an URL obained via GET-request. Assumes UTF-8 encoding by default. Returns a character element containing HTML-code.
 }
 \examples{
 getHTML()
