@@ -5,7 +5,7 @@
 \title{Function subsetHTML}
 \usage{
 subsetHTML(html, tag = "div", pattern = NULL, edit = F, save = F,
-  plot = F, prefix = NULL, trim = T)
+  plot = F, filename = NULL, trim = T)
 }
 \arguments{
 \item{html}{A character element containing HTML-code.}
@@ -20,7 +20,7 @@ subsetHTML(html, tag = "div", pattern = NULL, edit = F, save = F,
 
 \item{plot}{Logical value specifying whether to plot the frequency of each HTML-tag found in the html-object.}
 
-\item{prefix}{Character value specifying the beginning of the filename (in case of saving). If NULL (default) as.numeric(Sys.time()) is applied.}
+\item{filename}{Character value specifying the filename (if save is TRUE). If NULL (default) as.numeric(Sys.time()) is applied.}
 
 \item{trim}{Logical value specifying whether to trim text. Defaults to T.}
 }
