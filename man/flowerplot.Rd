@@ -4,9 +4,19 @@
 \alias{flowerplot}
 \title{Function flowerplot}
 \usage{
-flowerplot(x = NULL, maximum = NULL, rownames = NULL,
-  colnames = NULL, main = NULL, color = NULL, color2 = "lightgrey",
-  add.numbers = F, ncex = 0.8, ndigits = 1, ncol = "black")
+flowerplot(
+  x = NULL,
+  maximum = NULL,
+  rownames = NULL,
+  colnames = NULL,
+  main = NULL,
+  color = NULL,
+  color2 = "lightgrey",
+  add.numbers = F,
+  ncex = 0.8,
+  ndigits = 1,
+  ncol = "black"
+)
 }
 \arguments{
 \item{x}{Numeric data.frame or matrix containing the values to be displayed.}

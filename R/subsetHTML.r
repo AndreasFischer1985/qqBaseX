@@ -77,7 +77,7 @@ subsetHTML <- function (html, tag = "div", pattern = NULL, edit = F, save = F,
         }
     }
     result = data.frame(entry = result0, info = result2, links = result3, 
-        text = result1, stringsAsFactors = F)
+        stringsAsFactors = F)
     result = result[grep(paste0("^", start), result[, 1]), ]
     if (edit) 
         result = edit(result)
