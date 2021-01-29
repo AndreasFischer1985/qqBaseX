@@ -15,7 +15,7 @@ decollide(
   plot = F,
   lock.x = F,
   lock.y = F,
-  verbose = T,
+  verbose = F,
   repetitions = 100
 )
 }
