@@ -101,7 +101,8 @@ plotXY <- function (x = NULL, y = NULL, complexity = 0, rep.nnet = 10,
             title(sub = sub, cex.sub = cex.sub)
     polygon(c(in1, in1[length(in1):1]), c(inner, outer[length(outer):1]), 
         col = color3[1], border = NA)
-    points(data0[, 1], data0[, 2], pch = pch, col = color1[1])
+    if(length(data0[, 1])!=length(color1))color1=color1[1]
+    points(data0[, 1], data0[, 2], pch = pch, col = color1)
     lines(in1, ou1, , col = color2[1], lwd = lwd)
     dat = data.frame(predictor = in1, prediction = ou1, lower.bound = inner, 
         upper.bound = outer)
