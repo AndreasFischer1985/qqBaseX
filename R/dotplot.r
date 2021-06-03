@@ -88,7 +88,7 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
         ncex = cex
     if (!is.null(npos)) 
         if (is.na(npos)) 
-            npos = 3
+            npos = 4
     round2 = function(x, ndigits, addChars = "") {
         x2 = as.character(round(x, digits = ndigits))
         x2[is.na(x)] = ""
