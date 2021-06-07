@@ -15,7 +15,7 @@
 #' dotplot(rnorm(100))
 
 dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL, 
-    cex = par("cex"), pt.cex = cex, pch = 16, gpch = 21, bg = par("bg"), 
+    cex = par("cex"), pt.cex = cex, pch = 16, gpch = 21, bg = par("bg"), col=NULL,
     color = par("fg"), gcolor = par("fg"), lcolor = "gray", xlim = range(x[is.finite(x)]), 
     main = NULL, xlab = NULL, ylab = NULL, deviations = NA, x2 = NA, 
     vertLine = 0, horizLines = T, max = 40, sort = F, add.numbers = F, 
@@ -161,9 +161,9 @@ dotplot <- function (x = NULL, labels = NULL, groups = NULL, gdata = NULL,
     if (!is.na(x2[1])) {
         horizLines = F
         segments(x0 = x, y0 = y, x1 = x2, y1 = y, col = color)
-        points(x2, y, pch = pch, col = color, bg = bg, cex = pt.cex/cex)
+        points(x2, y, pch = pch, col = ifelse(is.null(col),list(color),list(col))[[1]], bg = bg, cex = pt.cex/cex)
     }
-    points(x, y, pch = pch, col = color, bg = bg, cex = pt.cex/cex)
+    points(x, y, pch = pch, col = ifelse(is.null(col),list(color),list(col))[[1]], bg = bg, cex = pt.cex/cex)
     if (add.numbers) 
         text(x, y, round2(x, ndigits, addChars), pos = npos, 
             col = ncol, cex = ncex, srt = nsrt, xpd = T)
