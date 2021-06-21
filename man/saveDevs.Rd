@@ -4,17 +4,8 @@
 \alias{saveDevs}
 \title{Function saveDevs}
 \usage{
-saveDevs(
-  filename = NA,
-  width = NA,
-  height = NA,
-  dev = png,
-  units = "in",
-  res = 300,
-  mess = T,
-  close = F,
-  ...
-)
+saveDevs(filename = NA, width = NA, height = NA, dev = png,
+  units = "in", res = 300, mess = T, close = F, ...)
 }
 \arguments{
 \item{filename}{Character vector containing file names.}

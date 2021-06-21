@@ -4,14 +4,8 @@
 \alias{predictWordFrequencies}
 \title{Function predictCodeFrequencies}
 \usage{
-predictWordFrequencies(
-  corpus,
-  predictor,
-  binary = T,
-  min = NULL,
-  mostFrequent = 10,
-  plot = T
-)
+predictWordFrequencies(corpus, predictor, binary = T, min = NULL,
+  mostFrequent = 10, plot = T)
 }
 \arguments{
 \item{corpus}{Character vector containing one document per element.}

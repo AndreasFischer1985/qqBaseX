@@ -4,20 +4,9 @@
 \alias{decollide}
 \title{Function decollide}
 \usage{
-decollide(
-  x,
-  y,
-  text,
-  jitter = F,
-  cex = 1,
-  font = 1,
-  frame = 1.5,
-  plot = F,
-  lock.x = F,
-  lock.y = F,
-  verbose = F,
-  repetitions = 100
-)
+decollide(x, y, text, jitter = F, cex = 1, font = 1, frame = 1.5,
+  plot = F, lock.x = F, lock.y = F, verbose = F,
+  repetitions = 100)
 }
 \arguments{
 \item{x}{Numeric vector containing x-coordinates of text elements.}
@@ -28,7 +17,7 @@ decollide(
 
 \item{jitter}{Logical value specifying whether to add a small random component after each step.}
 
-\item{cex}{Numeric value specifying the maximum number of steps. Defaults to 100.}
+\item{cex}{Numeric value specifying the relative font size of the text. Defaults to 1.}
 
 \item{frame}{Numeric value specifying the relative font size of an invisible frame around the text. Defaults to 1.5}
 
@@ -37,6 +26,8 @@ decollide(
 \item{lock.y}{Logical value specifying whether to skip shifts on the y-axis. Defaults to F.}
 
 \item{verbose}{Logical value specifying whether to give information on the process after each step.}
+
+\item{cex}{Numeric value specifying the maximum number of steps. Defaults to 100.}
 }
 \description{
 Returns a matrix with coordinates and text for plotting texts without collisions.

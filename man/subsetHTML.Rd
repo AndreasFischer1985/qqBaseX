@@ -4,16 +4,8 @@
 \alias{subsetHTML}
 \title{Function subsetHTML}
 \usage{
-subsetHTML(
-  html,
-  tag = "div",
-  pattern = NULL,
-  edit = F,
-  save = F,
-  plot = F,
-  filename = NULL,
-  trim = T
-)
+subsetHTML(html, tag = "div", pattern = NULL, edit = F, save = F,
+  plot = F, filename = NULL, trim = T)
 }
 \arguments{
 \item{html}{A character element containing HTML-code.}
@@ -39,6 +31,6 @@ Extracts a coherent subset of code from HTML-code.
 Extracts a coherent subset of code from HTML-code (as returned by qqBaseX::getHTML, for example).
 }
 \examples{
-subsetHTML(getHTML("https://jobs.meinestadt.de/nuernberg/suche?words=Wissenschaftlicher\%20Mitarbeiter",tag="div",pattern="class=\"m-resultListEntries__content\""))
+subsetHTML(getHTML("https://jobs.meinestadt.de/nuernberg/suche?words=Wissenschaftlicher\%20Mitarbeiter",tag="div",pattern="class=\\"m-resultListEntries__content\\""))
 }
 \keyword{scraping}
