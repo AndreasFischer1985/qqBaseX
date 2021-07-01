@@ -29,7 +29,7 @@ spiderplot <- function (x = NULL, lower = NULL, upper = NULL, weights = NULL,
     add.scale = T, col = NULL, col2 = NULL, border = NA, mode = 0, 
     arrows.lwd = 3, arrows.length = 0.01, add = F, add.numbers = F, 
     numbers = 2, add.grid = T, add.labels = T, line.type = "o", 
-    grid.detail = 1, grid.points = NULL, shift = 0) 
+    grid.detail = 1, grid.points = NULL, shift = 0, arrows.transparency = 0.7) 
 {
     dimensions = x
     if (!is.null(grid.points)) 
@@ -38,7 +38,7 @@ spiderplot <- function (x = NULL, lower = NULL, upper = NULL, weights = NULL,
     if (is.null(col)) 
         col = "#00547A"
     if (is.null(col2)) 
-        col2 = qqBaseX::cols2(col)
+        col2 = qqBaseX::cols2(col, arrows.transparency)
     if (!is.null(max)) {
         max = 1
         if (!is.null(upper) & !is.null(dimensions)) {
