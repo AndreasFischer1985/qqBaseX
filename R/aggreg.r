@@ -11,7 +11,7 @@
 #' @examples
 #' aggreg(x=1:10,y=c(rep(1,5),rep(2,5)))
 
-aggreg <- function (x, y = NULL, fun = NULL, verbose = T, y.dummy=F) 
+aggreg <- function (x, y = NULL, fun = NULL, verbose = T, y.is.dummy=F) 
 {
     if (is.null(fun)) 
         fun = function(x) mean(x, na.rm = T)
