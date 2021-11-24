@@ -11,7 +11,7 @@
 #' @examples
 #' aggreg(x=1:10,y=c(rep(1,5),rep(2,5)))
 
-aggreg <- function (x, y = NULL, fun = NULL, verbose = T) 
+aggreg <- function (x, y = NULL, fun = NULL, verbose = T, y.dummy=F) 
 {
     if (is.null(fun)) 
         fun = function(x) mean(x, na.rm = T)
@@ -19,6 +19,10 @@ aggreg <- function (x, y = NULL, fun = NULL, verbose = T)
     if (is.null(y)) 
         y = rep(1, dim(x)[1])
     y = cbind(y)
+    x=x[,colSums(is.na(x))<dim(x)[1]]
+	x=x[rowSums(is.na(x))<dim(x)[2],]
+	y=y[,colSums(is.na(y))<dim(y)[1]]
+	y=y[rowSums(is.na(y))<dim(y)[2],]
     if (dim(x)[2] == 1 & is.character(x)) {
         if (suppressWarnings(sum(is.na(as.numeric(x))) != sum(is.na(x)))) {
             if (verbose == T) 
@@ -53,6 +57,7 @@ aggreg <- function (x, y = NULL, fun = NULL, verbose = T)
         }
         return(u)
     }
+    if(y.is.dummy==F)                 
     if (dim(y)[2] == 1) 
         y = dummy(y)
     else {
