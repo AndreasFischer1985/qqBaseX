@@ -21,6 +21,11 @@ aggreg <- function (x, y = NULL, fun = NULL, verbose = T, y.is.dummy=F)
     y = cbind(y)
     x=x[,colSums(is.na(x))<dim(x)[1]]  
     y=y[,colSums(is.na(y))<dim(y)[1]]    
+    z=(rowSums(is.na(x))<dim(x)[2])&(rowSums(is.na(y))<dim(y)[2])
+    if(sum(z)<2)stop("less than two valid cases")
+	x=x[z,]
+	y=y[z,]
+    
     if (dim(x)[2] == 1 & is.character(x)) {
         if (suppressWarnings(sum(is.na(as.numeric(x))) != sum(is.na(x)))) {
             if (verbose == T) 
