@@ -19,8 +19,8 @@ aggreg <- function (x, y = NULL, fun = NULL, verbose = T, y.is.dummy=F)
     if (is.null(y)) 
         y = rep(1, dim(x)[1])
     y = cbind(y)
-    x=x[,colSums(is.na(x))<dim(x)[1]]  
-    y=y[,colSums(is.na(y))<dim(y)[1]]    
+    x=cbind(x[,colSums(is.na(x))<dim(x)[1]])  
+    y=cbind(y[,colSums(is.na(y))<dim(y)[1]])
     z=(rowSums(is.na(x))<dim(x)[2])&(rowSums(is.na(y))<dim(y)[2])
     if(sum(z)<2)stop("less than two valid cases")
 	x=cbind(x[z,])
@@ -97,16 +97,13 @@ aggreg <- function (x, y = NULL, fun = NULL, verbose = T, y.is.dummy=F)
             print(y)
         }
         y = y[, 1]
-        x = t(sapply(unique(y), function(subset) fun(rbind(x[y == 
-            subset, ]))))
-    }
-    else {
+        x = sapply(unique(y), function(subset) apply(rbind(x[y == subset,]), ifelse(dim(x)[2]==1,1,2), fun)) 
+    } else {
         if (verbose == T) {
             print(x)
             print(y)
         }
-        x = sapply(colnames(y), function(subset) apply(rbind(x[y[, 
-            subset] == 1, ]), 2, fun))
-    }
+        x = sapply(colnames(y), function(subset) apply(rbind(x[y[, subset] == 1, ]), ifelse(dim(x)[2]==1,1,2), fun))
+    }  
     return(x)
 }
