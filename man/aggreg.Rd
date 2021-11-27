@@ -4,16 +4,21 @@
 \alias{aggreg}
 \title{Function aggreg}
 \usage{
-aggreg(x, y = NULL, fun = NULL, verbose = T)
+aggreg(x, y = NULL, fun = NULL, verbose = F, y.is.dummy = F,
+  attr = F)
 }
 \arguments{
 \item{x}{Numeric vector or matrix.}
 
 \item{y}{Vector or matrix specifying the subsets to compute summary statistics for.}
 
-\item{fun}{Function specifying the summary statistic to compute. If NULL (default), mean will be calculated.}
+\item{fun}{Function specifying the summary statistic to compute. If NULL (default), mean is calculated.}
 
-\item{verbose}{Logical value specifying the verbocity of output.}
+\item{verbose}{Logical value specifying the verbocity of output. Defaults to F.}
+
+\item{y.is.dummy}{Logical value specifying whether y is already dummy-coded and thus does not have to be converted. Defaults to F.}
+
+\item{attr}{Logical value specifying whether subset-sizes should be added as an attribute of the returned result.}
 }
 \description{
 Splits a numeric vector or matrix into subsets, computes summary statistics for each, and returns the result in a convenient form.
