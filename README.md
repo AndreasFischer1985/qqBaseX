@@ -5,5 +5,5 @@ The qqBaseX package can be installed using the following commands in R:
 
 ```
 install.packages("devtools");
-devtools::install_github("AndreasFischer/qqBaseX");
+devtools::install_github("AndreasFischer1985/qqBaseX");
 ```
