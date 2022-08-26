@@ -5,9 +5,10 @@
 \title{Function boxedText}
 \usage{
 boxedText(x, y, text = "Hello \\nWorld", x2 = NULL, y2 = NULL,
-  maxlength = NULL, col = "yellow", border = "black", pos = NULL,
-  font = 1, hspace = 1, vspace = 1.2, cex = 1, decollide = F,
-  decollide.repetitions = 10, ...)
+  maxlength = NULL, col = "black", col2 = "yellow",
+  border = "black", xpd = T, pos = NULL, font = 1, hspace = 1,
+  vspace = 1.2, cex = 1, decollide = F, decollide.repetitions = 10,
+  ...)
 }
 \arguments{
 \item{x}{Numeric value specifying the text's position on the x-axis.}
@@ -18,15 +19,19 @@ boxedText(x, y, text = "Hello \\nWorld", x2 = NULL, y2 = NULL,
 
 \item{y2}{Numeric value specifying the arrow's position on the y-axis.}
 
-\item{col}{Character value specifying the color of the box. Defaults to "yellow".}
+\item{col}{Character value specifying the color of the text. Defaults to "black".}
+
+\item{col2}{Character value specifying the color of the box. Defaults to "yellow".}
+
+\item{border}{Character value specifying the color of the border. Defaults to "black".}
+
+\item{xpd}{Logical value specifying whether plotting is not clipped, or restricted, to the plotting region. Defaults to T.}
 
 \item{pos}{Numeric value specifying the position of the arrow relative to the box (0=no arrow plotted, 1=down, 2=left, 3=up, 4=right).}
 
 \item{...}{Additional graphical parameters for text.}
 
 \item{txt}{Character value specifying the text to be plotted.}
-
-\item{col}{Character value specifying the color of the border. Defaults to "black".}
 }
 \description{
 Adds a boxed text to a plot.
